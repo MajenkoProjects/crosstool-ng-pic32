@@ -1,7 +1,7 @@
 diff -Naur a/gcc/config/mips/t-pic32 b/gcc/config/mips/t-pic32
 --- a/gcc/config/mips/t-pic32	1970-01-01 01:00:00.000000000 +0100
-+++ b/gcc/config/mips/t-pic32	2021-01-10 14:33:27.865042087 +0000
-@@ -0,0 +1,23 @@
++++ b/gcc/config/mips/t-pic32	2021-01-10 17:09:55.057778722 +0000
+@@ -0,0 +1,24 @@
 +# Copyright (C) 1999-2020 Free Software Foundation, Inc.
 +#
 +# This file is part of GCC.
@@ -22,9 +22,10 @@ diff -Naur a/gcc/config/mips/t-pic32 b/gcc/config/mips/t-pic32
 +
 +# Build the libraries for both hard and soft floating point
 +
-+MULTILIB_OPTIONS = march=m5100/march=m14kc msoft-float mdspr2
-+MULTILIB_DIRNAMES = m5100 m14kc soft-float dsp
-+MULTILIB_MATCHES =
++MULTILIB_OPTIONS = mips32r2/mips32r5/mips16/micromips msoft-float mdspr2
++MULTILIB_DIRNAMES = r2 r5 mips16 micromips soft-float dspr2
++MULTILIB_MATCHES = 
++MULTILIB_REQUIRED = mips32r2/msoft-float mips32r2/msoft-float/mdspr2 mips32r2/mdspr2 mips32r5/mdspr2 mips32r5/msoft-float/mdspr2
 diff -Naur a/gcc/config.gcc b/gcc/config.gcc
 --- a/gcc/config.gcc	2020-07-23 07:35:17.316384243 +0100
 +++ b/gcc/config.gcc	2021-01-10 14:35:21.189454379 +0000
